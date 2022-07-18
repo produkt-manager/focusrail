@@ -72,3 +72,4 @@ h1. Implementation
 
 --- 
 Disclaimer: I do not take responsibility for the content of external websites.
+Copyright 2022 Andreas Rudolph, and is released under the Apache 2.0 license (see license file).
