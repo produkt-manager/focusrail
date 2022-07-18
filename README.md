@@ -9,11 +9,7 @@ Compared to other boards in the market, the Sony Spresense® is has a high degre
 
 A typical development setup includes the board itself, and the extension board. The extension board exposes the interfaces of the board to the outside world. Many use cases require a camera. Sony offers a corresponding solution that can be interfaced with the board.
 
-Find here more specs about this interesting board and its ecosystem:
-
-* https://developer.sony.com/develop/spresense/
-* https://www.sony-semicon.co.jp/products_en/spresense/index.html
-* https://github.com/sonydevworld
+Find here more specs about this interesting board and its ecosystem: https://github.com/produkt-manager/focusrail/blob/main/Literature.md
 
 ## Focusrail - Project
 
@@ -62,10 +58,7 @@ Fischertechnik® is prototyping system that aims both kids, and educated enginee
 
 In this project I will use Fischertechnik® in order to build the prototype of a motorized focus rail. In this setup the Sony Spresense is equipped with a camera board, and is mounted to this focus rail. The board interfaces to the Fischertechnik® motorcontroller, which is in charge of the motor movement. The software on the Sony Spresense will control the motorcontroller, while it captures the photos. These stacks are lateron combined into one photo.
 
-The following literature is helpful to understand the creation and control of robots using Fischertechnik®
-- Fischertechnik https://www.fischertechnik.de/de-de/
-- Fischertechnik-Roboter mit Arduino https://fischertechnik-roboter-mit-arduino.de
-- Bauen, erleben, begreifen: fischertechnik®-Modelle für Maker https://dpunkt.de/produkt/bauen-erleben-begreifen-fischertechnik-modelle-fuer-maker/
+The following literature is helpful to understand the creation and control of robots using Fischertechnik®: https://github.com/produkt-manager/focusrail/blob/main/Literature.md
 
 h1. Implementation
 
