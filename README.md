@@ -19,7 +19,7 @@ Find here more specs about this interesting board and its ecosystem:
 
 This project demonstrate a narrow application, that uses by far not the complete power and feature-richness of this board. However in its particular field of photography my prototype addresses and solves the common problem to create focus stacks.
 
-h2. Macrophotography: The requirement
+## Macrophotography: The requirement
 
 Both photography and videography cover a wide wide range of artistic genres. As a specialization, the macrophotography aims at tiny objects, such as insects, small parts or material surfaces. Some macro-photographers might even employ lenses that are usually found in microscopes. 
 
