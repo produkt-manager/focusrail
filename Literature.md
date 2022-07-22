@@ -17,16 +17,27 @@ Find here more specs about this interesting board and its ecosystem:
 * Spresense Extension board - Interface external sensors https://eu.mouser.com/ProductDetail/Sony-Spresense/CXD5602PWBEXT1_FG_875607608_P?qs=sGAEpiMZZMu3sxpa5v1qrpe%2F9%2FddSq0jgeEkn3phnwE=
 * Spresense camera add-on: https://www.mouser.de/ProductDetail/Sony-Spresense/CXD5602PWBCAM1_FG_875607605_P?qs=%252B6g0mu59x7J6Zuo16lmP4w%3D%3D
 
+
 ### 1.1.3 Camera
 
 Overview and first steps with the camera:
 
 * https://www.hackster.io/jpenner64/sony-spresense-camera-basics-fa5476
+* Camera Example in CircuitPython: https://developer.sony.com/develop/spresense/docs/circuitpython_tutorials_en.html#_circuitpython_camera_tutorial
+* SD Card Tutorial in CircuitPython: https://developer.sony.com/develop/spresense/docs/circuitpython_tutorials_en.html#_circuitpython_sdcard_tutorial)
+
+### 1.1.4 Configuration
+
+* Getting started: https://developer.sony.com/develop/spresense/docs/home_en.html
+* Documentation Hub: https://developer.sony.com/develop/spresense/docs/introduction_en.html#_spresense_software
+* Install Circuitpython: https://developer.sony.com/develop/spresense/docs/circuitpython_set_up_en.html.
+* Setup Build- and Developmentenvironment https://developer.sony.com/develop/spresense/docs/circuitpython_tutorials_en.html#_build_and_deploy_circuitpython_on_spresense_from_sources.
+
 
 ## 1.2 Fischertechnik
 
 The following literature is helpful to understand the creation and control of robots using Fischertechnik®
 
 * Fischertechnik (German) https://www.fischertechnik.de/de-de/
-* Fischertechnik-Roboter mit Arduino (German) https://fischertechnik-roboter-mit-arduino.de
-* Bauen, erleben, begreifen: fischertechnik®-Modelle für Maker (German) https://dpunkt.de/produkt/bauen-erleben-begreifen-fischertechnik-modelle-fuer-maker/
+* Book "Fischertechnik-Roboter mit Arduino" (German) https://fischertechnik-roboter-mit-arduino.de
+* Book "Bauen, erleben, begreifen: fischertechnik®-Modelle für Maker" (German) https://dpunkt.de/produkt/bauen-erleben-begreifen-fischertechnik-modelle-fuer-maker/
