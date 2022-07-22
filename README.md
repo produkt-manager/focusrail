@@ -60,8 +60,72 @@ In this project I will use Fischertechnik® in order to build the prototype of a
 
 The following literature is helpful to understand the creation and control of robots using Fischertechnik®: https://github.com/produkt-manager/focusrail/blob/main/Literature.md
 
-h1. Implementation
+# Implementation
 
+Spresense offers different options to program and run code on your board. The following documentation serves as a central hub for everything you need to know: https://developer.sony.com/develop/spresense/docs/home_en.html. First, setup your board.
+
+## Configuration
+
+With Spresense you can basically use one of these development environments (see https://developer.sony.com/develop/spresense/docs/introduction_en.html#_spresense_software)
+
+* Spresense Arduino Library
+* Spresense SDK, which is Sony’s original development environment and is based on NuttX and uses GNU Make.
+* CircuitPython for Spresense
+
+As the algorithms for stacking photos are written in Python, the current project will prefer the latter option. Install CircuitPython and use it as described here: https://developer.sony.com/develop/spresense/docs/circuitpython_set_up_en.html.
+
+In order to program your board, you need a development and build environment. The current project uses Microsoft’s Visual Studio code. Install it and configure it as described here: https://developer.sony.com/develop/spresense/docs/circuitpython_tutorials_en.html#_build_and_deploy_circuitpython_on_spresense_from_sources.
+
+## Implementation of the Features - Design
+
+The Spresense standard delivery includes several building blocks for the current project. This section describes the design of a solution that consists of the following parts:
+
+* Console
+* Camera (capture photos and create stacks)
+* Motorized focus rail/ motors
+
+### Console
+
+Focus stacking requires you to capture several photos from the same object, while you change the focus plane between each shot. This can be achieved by mounting the camera onto a motorized rail, which then moves the camera by a defined distance between each shot.
+
+A UI that extends/ interfaces the camera example is required that allows the user to define parameters, such as how many shots, distances, etc.
+
+### Camera
+
+In this project, Spresense works as a camera. The example section of the documentation (see here https://developer.sony.com/develop/spresense/docs/circuitpython_tutorials_en.html#_circuitpython_camera_tutorial) includes a camera example, which is a good starting point for this part. You install it to your Spresense as described in the mentioned documentation. 
+
+The example code is able to capture photos, and it can be extended by the missing functions to create focus stacks. The stacked photo is then written to the SD card. The corresponding section of the standard is a good starting point in order to learn how this is done (see https://developer.sony.com/develop/spresense/docs/circuitpython_tutorials_en.html#_circuitpython_sdcard_tutorial).
+
+### Motorized focus rail
+
+The current project employs a standard construction kit in order to create a prototype of the mentioned motorized focus rail. This prototype includes the required mechanical structure, and it employs motors in order to move the mounted camera. After each shot, the modified/ extended camera example needs to move the motors correspondingly.
+
+Different options exist to establish the interface between the modified camera example on the Spresense and these motors.
+
+* Separate motor controller
+* Spresense as the motor controller
+* RoboRISC and ftRoboRemote on the fischertechnik® controller
+
+#### Separate motor controller
+
+As described in the book „Fischertechnik-Roboter mit Arduino“ (see reference on https://github.com/produkt-manager/focusrail/blob/main/Literature.md), you can use an Arduino that is equipped with a Motor shield to connect the motors of the Fischertechnik construction system. This described setup in particular uses the Adafruit Motor shield and the communication between Arduino and motors employs the I2C protocol. 
+
+In such a setup the Spresense will interface the Arduino-based motor controller and input commands, which describe the needed movements. The connection can either be established directly, or by means of a message broker such as MQTT that runs on a central server (i.e. located in the Spresense).
+
+#### Spresense as the motor controller
+
+As described above, the motors of the mechanical construction will be connected to the motor shield as before. But instead of a separate Controller Board that interfaces this motor shield, the motor shield is connected to the Spresense. Here, the Spresense takes the pictures and also functions as a controller for the motor shield/ the motors.
+
+#### RoboRISC and ftRoboRemote on the fischertechnik® controller
+
+The fischertechnik® system includes an own controller. Available to this project is the TXT 3.0 controller, which is normally programmed with a graphical language. 
+
+As by the book „Bauen, erleben, begreifen: fischertechnik®-Modelle für Maker“ (see reference on https://github.com/produkt-manager/focusrail/blob/main/Literature.md) to following options exist to extend the programmability of this board:
+
+* Extend this controller with libraries that support modern program languages (see „TXT C Programming Expert Kit“ available on the fischertechnik® homepage). 
+* Use the program system ftrobopy (Python interface to the fischertechnik® TXT controller by Torsten Stuehn), which comes with much more features. In order to use this library an upgrade to the system is needed (see page 270ff).
+
+h2. Implementation
 
 --- 
 Disclaimer: I do not take responsibility for the content of external websites.
