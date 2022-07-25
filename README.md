@@ -1,5 +1,5 @@
 # focusrail
-Prototype of a focus rail for macrophotography, using Sony Spresense® and Fischertechnik®.
+Design-Prototype of a focus rail for macrophotography, using Sony Spresense® and Fischertechnik® (implementation in forthcomming project phases)
 
 # 1 Sony Spresense
 
