@@ -1,5 +1,5 @@
 # focusrail
-Prototype of a focus rail for macrophotography, using Sony Spresense® and Fischertechnik®.
+Design-Prototype of a focus rail for macrophotography, using Sony Spresense® and Fischertechnik® (implementation in forthcomming project phases)
 
 # 1 Sony Spresense
 
@@ -133,7 +133,7 @@ As by the book „Bauen, erleben, begreifen: fischertechnik®-Modelle für Maker
 
 ## 3.4 Hardware
 
-A focus rail is s piece of hardware that is capable of moving the Spresense camera board towards the object, as smoothly as possible. Attached photos document different aspects of the the construction details (for better view ability not all parts finally assembled).
+A focus rail is s piece of hardware that is capable of moving the Spresense camera board towards the object, as smoothly as possible. Attached photos document different aspects of the the construction details (for better view ability not all parts finally assembled). For more information, see https://github.com/produkt-manager/focusrail/tree/main/Hardware.
 
 First you create a gear, which is moved by the motor. The higher the translation of this gear, the smaller and smoother the movement. As you see on the photos, the prototype uses a 3 : 1 gear that is driven by the motor on one side, and that is connected to a shaft, which is then used to translate the rotation to a linear movement by means of a worm gear. 
 
