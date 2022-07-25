@@ -1,6 +1,5 @@
 # Modified version of code.py from https://developer.sony.com/develop/spresense/docs/circuitpython_tutorials_en.html#_sample_code_3
-# Show principle of focusstacking/ focusrail
-
+# Show principle of focusstacking focusrail
 
 import board
 import sdioio
