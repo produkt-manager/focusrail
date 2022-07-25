@@ -1,7 +1,7 @@
-# 1 focusrail
+# focusrail
 Prototype of a focus rail for macrophotography, using Sony Spresense® and Fischertechnik®.
 
-## 1.1 Sony Spresense
+# 1 Sony Spresense
 
 The Sony Spresense is a microcontroller device. It combines a small size with a huge performance, and a remarkable energy efficiency. The device and its ecosystem can be used for professional research and development. It is also very well suited to be employed in the fields of education, teaching and making.
 
@@ -11,17 +11,15 @@ A typical development setup includes the board itself, and the extension board. 
 
 Find here more specs about this interesting board and its ecosystem: https://github.com/produkt-manager/focusrail/blob/main/Literature.md
 
-## 1.2 Focusrail - Project
-
 This project demonstrate a narrow application, that uses by far not the complete power and feature-richness of this board. However in its particular field of photography my prototype addresses and solves the common problem to create focus stacks.
 
-## 1.3 Macrophotography: The requirement
+# 2 Macrophotography: The requirement
 
 Both photography and videography cover a wide wide range of artistic genres. As a specialization, the macrophotography aims at tiny objects, such as insects, small parts or material surfaces. Some macro-photographers might even employ lenses that are usually found in microscopes. 
 
 Macro photography comes with its own set of photographic and technical requirements. One common problem has to do with the limited depth of field of given lenses and cameras that are used for capturing macro photos.
 
-### 1.3.1 Technical process for macro photography
+## 2.1 Technical process for macro photography
 
 Modern photo- and videocameras or cameras on smartphones consist of an optical system and a sensor that captures the light that passes the optical system. These cameras also include the software that manages the capturing process, and all steps needed to pre- or post process the photograph („computational photography“).
 
@@ -37,7 +35,7 @@ Depending on its sensitivity, the sensor makes sure that the photography is expo
 
 Due to technical limitations, macro photos are typically characterized by a shallow depth of field. Therefore given the light conditions only parts of the object of interest are sharp, while areas in front or behind the focus point are blurred. In order to create photos that are completely in focus, the photographer typically employs a technology that is called focus stacking.
 
-### 1.3.2 Focus stacking
+## 2.2 Focus stacking
 
 At a given setting for aperture, ISO, and shutter speed only a slice of the object is in focus. In order to extend the focus area, the photographer can capture multiple photographs of the same scene, while he makes sure that each time a different plane of the photo is in focus. In the post processing step these multiple photographs, and manly the in-focus areas of each of them are then stacked onto each other using a proper algorithm. At the end the in-focus areas of all images are combined in one image.
 
@@ -52,7 +50,7 @@ The second option requires a fundamental change in the camera itself, while the 
 
 Such a device typically consist of mechanical parts (focus rail), electronics (motor control), and software that is capable to interface and affect the motor and the shutter of the camera.
 
-### 1.3.3 Fischertechnik
+## 2.3 Fischertechnik
 
 Fischertechnik® is prototyping system that aims both kids, and educated engineers the like. Similar to the competing Lego® system it supports a large area of technical applications, such as mechanics, pneumatics, dynamics, electronic, or robotics, to name just a few. The normed parts allow the user to construct a wide variety of machines and devices, and also supports motor control.
 
@@ -60,11 +58,11 @@ In this project I will use Fischertechnik® in order to build the prototype of a
 
 The following literature is helpful to understand the creation and control of robots using Fischertechnik®: https://github.com/produkt-manager/focusrail/blob/main/Literature.md
 
-## 1.2 Implementation
+# 3 Implementation
 
 Spresense offers different options to program and run code on your board. The following documentation serves as a central hub for everything you need to know: https://developer.sony.com/develop/spresense/docs/home_en.html. First, setup your board.
 
-### 1.2.1 Configuration
+## 3.1 Configuration
 
 With Spresense you can basically use one of these development environments (see https://developer.sony.com/develop/spresense/docs/introduction_en.html#_spresense_software)
 
@@ -76,7 +74,15 @@ As the algorithms for stacking photos are written in Python, the current project
 
 In order to program your board, you need a development and build environment. The current project uses Microsoft’s Visual Studio code. Install it and configure it as described here: https://developer.sony.com/develop/spresense/docs/circuitpython_tutorials_en.html#_build_and_deploy_circuitpython_on_spresense_from_sources.
 
-### 1.2.2 Implementation of the Features - Design
+## 3.2 Implementation of the Features - Principle
+
+With the most simple design for a focus rail you constantly move the camera with the focus rail, constantly take photos or use video during this movement, and store the results on the SD card. After movement ends, the stacked photo is then created from these photos. 
+
+This solution does not require motor control. However, as the rail is constantly moving you need to meet specific lighting conditions, and the quality of the photos might be limited.
+
+A more complex design includes motor control. Here you move the camera for one step, take a photo, and then move the camera for the next step and again take a photo - until you covered the entire object. 
+
+## 3.3 Implementation of the Features - Design of a Controlled Version
 
 The Spresense standard delivery includes several building blocks for the current project. This section describes the design of a solution that consists of the following parts:
 
@@ -84,19 +90,19 @@ The Spresense standard delivery includes several building blocks for the current
 * Camera (capture photos and create stacks)
 * Motorized focus rail/ motors
 
-#### 1.2.2.1 Console
+### 3.3.1 Console
 
 Focus stacking requires you to capture several photos from the same object, while you change the focus plane between each shot. This can be achieved by mounting the camera onto a motorized rail, which then moves the camera by a defined distance between each shot.
 
 A UI that extends/ interfaces the camera example is required that allows the user to define parameters, such as how many shots, distances, etc.
 
-#### 1.2.2.2 Camera
+### 3.3.2 Camera
 
 In this project, Spresense works as a camera. The example section of the documentation (see here https://developer.sony.com/develop/spresense/docs/circuitpython_tutorials_en.html#_circuitpython_camera_tutorial) includes a camera example, which is a good starting point for this part. You install it to your Spresense as described in the mentioned documentation. 
 
 The example code is able to capture photos, and it can be extended by the missing functions to create focus stacks. The stacked photo is then written to the SD card. The corresponding section of the standard is a good starting point in order to learn how this is done (see https://developer.sony.com/develop/spresense/docs/circuitpython_tutorials_en.html#_circuitpython_sdcard_tutorial).
 
-#### 1.2.2.3 Motorized focus rail
+### 3.3.3 Motorized focus rail
 
 The current project employs a standard construction kit in order to create a prototype of the mentioned motorized focus rail. This prototype includes the required mechanical structure, and it employs motors in order to move the mounted camera. After each shot, the modified/ extended camera example needs to move the motors correspondingly.
 
@@ -125,7 +131,13 @@ As by the book „Bauen, erleben, begreifen: fischertechnik®-Modelle für Maker
 * Extend this controller with libraries that support modern program languages (see „TXT C Programming Expert Kit“ available on the fischertechnik® homepage). 
 * Use the program system ftrobopy (Python interface to the fischertechnik® TXT controller by Torsten Stuehn), which comes with much more features. In order to use this library an upgrade to the system is needed (see page 270ff).
 
-## 1.3 Implementation
+## 3.4 Hardware
+
+A focus rail is s piece of hardware that is capable of moving the Spresense camera board towards the object, as smoothly as possible. Attached photos document different aspects of the the construction details (for better view ability not all parts finally assembled).
+
+First you create a gear, which is moved by the motor. The higher the translation of this gear, the smaller and smoother the movement. As you see on the photos, the prototype uses a 3 : 1 gear that is driven by the motor on one side, and that is connected to a shaft, which is then used to translate the rotation to a linear movement by means of a worm gear. 
+
+One complete revolution of the shaft requires 3 motor revolutions. As you see in the photos, the outbound shaft of the 3 : 1 gear is connected to a worm gear. The camera is mounted to a plate that is fixed on this worm gear. This construction translates the rotary movements from the 3 : 1 gear into a linear camera movement. The Spresense is mounted to a traversal behind this gear, as it does not need to be moved. A short video shows the camera movement.
 
 --- 
 Disclaimer: I do not take responsibility for the content of external websites.
