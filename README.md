@@ -139,7 +139,7 @@ First you create a gear, which is moved by the motor. The higher the translation
 
 One complete revolution of the shaft requires 3 motor revolutions. As you see in the photos, the outbound shaft of the 3 : 1 gear is connected to a worm gear. The camera is mounted to a plate that is fixed on this worm gear. This construction translates the rotary movements from the 3 : 1 gear into a linear camera movement. The Spresense is mounted to a traversal behind this gear, as it does not need to be moved. A short video shows the camera movement.
 
-3.5 Codeidea
+# 3.5 Codeidea
 
 In the codesection find a codeidea based on the Spresense documentation, which might give you a first idea of the needed camera code.
 
