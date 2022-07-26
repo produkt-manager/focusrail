@@ -33,6 +33,13 @@ Overview and first steps with the camera:
 * Install Circuitpython: https://developer.sony.com/develop/spresense/docs/circuitpython_set_up_en.html.
 * Setup Build- and Developmentenvironment https://developer.sony.com/develop/spresense/docs/circuitpython_tutorials_en.html#_build_and_deploy_circuitpython_on_spresense_from_sources.
 
+### 1.1.5 MQTT
+
+How to use the MQTT Message broker with the Spresense
+
+- Arduino IDE: See the Arduino LTE example, LTE → LteGnssTracker: Spresense Arduino: LteGnssTracker sample sketch
+- SDK environment : See the code example in the spresense/sdk/examples/lte_mqtt folder of  Spresense SDK: LTE MQTT sample application
+- EdgeImpulse: Deep Dive Sony Spresense with Edge Impulse https://www.edgeimpulse.com/blog/deep-dive-sony-spresense-with-edge-impulse-part-1 
 
 ## 1.2 Fischertechnik
 

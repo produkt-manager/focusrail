@@ -114,17 +114,21 @@ Different options exist to establish the interface between the modified camera e
 
 ##### A: Separate motor controller
 
-As described in the book „Fischertechnik-Roboter mit Arduino“ (see reference on https://github.com/produkt-manager/focusrail/blob/main/Literature.md), you can use an Arduino that is equipped with a Motor shield to connect the motors of the Fischertechnik construction system. This described setup in particular uses the Adafruit Motor shield and the communication between Arduino and motors employs the I2C protocol. 
+As described in the book „Fischertechnik-Roboter mit Arduino“ (see reference on https://github.com/produkt-manager/focusrail/blob/main/Literature.md), you can use an Arduino that is equipped with a Motor shield to connect the motors of the Fischertechnik construction system. Their setup in particular uses the Adafruit Motor shield and the communication between Arduino and motors employs the I2C protocol. 
 
-In such a setup the Spresense will interface the Arduino-based motor controller and input commands, which describe the needed movements. The connection can either be established directly, or by means of a message broker such as MQTT that runs on a central server (i.e. located in the Spresense).
+In such a setup the Spresense will interface the Arduino-based motor controller and commands this separate controller how to move. The connection between Spresense and the Arduino with its motorcontroller can either be established directly, or by means of a message broker such as MQTT that runs on a central server (i.e. located in the Spresense).
+
+However, keep in mind that on the Spresense the CircuitPython does not support MQTT (see the FAQ section in the Spresense documentation). There you have the options to either install the stand-alone ArduinoMqttClient library in the Arduino IDE. Or, in the SDK environment you use the MQTT library (Eclipse Paho MQTT C/C++ client for Embedded platforms). As EdgeImpulse writes in their Deep Dive you can also install an Arduino WLAN shield that also supports MQTT.
+
+For more information, see the links listed in the Literature https://github.com/produkt-manager/focusrail/blob/main/Literature.md
 
 ##### B: Spresense as the motor controller
 
-As described above, the motors of the mechanical construction will be connected to the motor shield as before. But instead of a separate Controller Board that interfaces this motor shield, the motor shield is connected to the Spresense. Here, the Spresense takes the pictures and also functions as a controller for the motor shield/ the motors.
+As described above, the motors of the mechanical construction will be connected to the motor shield as before. But instead of a separate Controller Board that interfaces this motor shield, the motor shield can also be connected to the Spresense. Here, the Spresense takes the pictures using the camera app, and it also functions as a controller for the motor shield/ the motors.
 
 ##### C: RoboRISC and ftRoboRemote on the fischertechnik® controller
 
-The fischertechnik® system includes an own controller. Available to this project is the TXT 3.0 controller, which is normally programmed with a graphical language. 
+The fischertechnik® system as well includes an own controller. Available to this project is the TXT 3.0 controller, which is normally programmed with a graphical language. 
 
 As by the book „Bauen, erleben, begreifen: fischertechnik®-Modelle für Maker“ (see reference on https://github.com/produkt-manager/focusrail/blob/main/Literature.md) to following options exist to extend the programmability of this board:
 
@@ -133,7 +137,7 @@ As by the book „Bauen, erleben, begreifen: fischertechnik®-Modelle für Maker
 
 ## 3.4 Hardware
 
-A focus rail is s piece of hardware that is capable of moving the Spresense camera board towards the object, as smoothly as possible. Attached photos document different aspects of the the construction details (for better view ability not all parts finally assembled). For more information, see https://github.com/produkt-manager/focusrail/tree/main/Hardware.
+A focus rail is s piece of hardware that is capable of moving the Spresense camera board step-by-step towards the object, and as smoothly as possible. Attached photos document different aspects of the the construction details (for better view ability not all parts finally assembled). In order to access these photos, see https://github.com/produkt-manager/focusrail/tree/main/Hardware.
 
 First you create a gear, which is moved by the motor. The higher the translation of this gear, the smaller and smoother the movement. As you see on the photos, the prototype uses a 3 : 1 gear that is driven by the motor on one side, and that is connected to a shaft, which is then used to translate the rotation to a linear movement by means of a worm gear. 
 
